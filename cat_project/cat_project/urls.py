@@ -15,7 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.urls import include
+from cat_app import views
 
 urlpatterns = [
+    path('', views.index, name='home'),
+    path('cat_app/', include('cat_app.urls')),
+    # above are urls starting with cat_app/ to be handled by cat_app.
     path('admin/', admin.site.urls),
 ]
