@@ -6,16 +6,35 @@
     <html>
 
         <head>
-            <title>Cats</title>
+            <title>Pets for Students</title>
         </head>
 
         <body>
             <img src="{% static 'images/cat.png' %}"
                  alt="Picture of a cat" />
             <h1>The Students and their cats are:</h1>
-                <div>
-                    <strong>{{ boldmessage }}</strong><br />
-                </div>
+            <div>
+                {% if students %}
+                    <ul>
+                        {% for student in students %}
+                            <li>
+                                {{ student.first_name }} {{ student.last_name }} has <strong>{{ student.number_of_cats }}</strong>
+                                {% if student.number_of_cats == 1 %}
+                                    cat
+                                {% else %}
+                                    cats
+                                {% endif %}
+                                <ul>
+                                    {% for pet in student.pet_set.all %}
+                                    <li>{{ pet.name }}</li>
+                                    {% endfor %}
+                                </ul>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <strong>There are no students listed.</strong>
+                {% endif %}
+            </div>
             <div>
                 <a href="/cat_app/pets">About Pets of Students</a><br />
             </div>

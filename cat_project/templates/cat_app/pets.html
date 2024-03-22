@@ -6,7 +6,7 @@
     <html>
 
         <head>
-            <title>Cats</title>
+            <title>Pets list</title>
         </head>
 
         <body>
@@ -14,10 +14,16 @@
                alt="Picture of a cat with fire" />
             <h1>All the cats are:</h1>
                 <div>
-                    <strong>{{ boldmessage }}</strong><br />
+                        <ul>
+                            {% for pet in pets %}
+                                <li>
+                                    {{ pet.name }}
+                                </li>
+                            {% endfor %}
+                        </ul>
                 </div>
             <div>
-                click to go back to
+                Click to go back to
                 <a href="/cat_app/">Home</a><br />
             </div>
         </body>
