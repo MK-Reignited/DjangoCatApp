@@ -7,8 +7,8 @@ def index(request):
 
     return render(request, 'cat_app/index.html', context=context_dict)
 
-def cats(request):
+def pets(request):
 
     context_dict = {'boldmessage': '[List of all cats go here]'}
 
-    return render(request, 'cat_app/cats.html', context=context_dict)
+    return render(request, 'cat_app/pets.html', context=context_dict)
