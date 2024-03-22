@@ -1,0 +1,24 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+
+
+    <html>
+
+        <head>
+            <title>Cats</title>
+        </head>
+
+        <body>
+          <img src="{% static 'images/cats_with_fire.jpg' %}"
+               alt="Picture of a cat with fire" />
+            <h1>All the cats are:</h1>
+                <div>
+                    <strong>{{ boldmessage }}</strong><br />
+                </div>
+            <div>
+                click to go back to
+                <a href="/cat_app/">Home</a><br />
+            </div>
+        </body>
+    </html>

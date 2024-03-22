@@ -2,11 +2,13 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 def index(request):
-    return HttpResponse('Home View'
-                        '<br>'
-                        '<a href="/cat_app/cats/">Cats</a>')
+
+    context_dict = {'boldmessage': '[List of students and their cats go here]'}
+
+    return render(request, 'cat_app/index.html', context=context_dict)
 
 def cats(request):
-    return  HttpResponse('here is the list of cats'
-                         '<br>'
-                         '<a href="/cat_app/">Home</a>')
+
+    context_dict = {'boldmessage': '[List of all cats go here]'}
+
+    return render(request, 'cat_app/cats.html', context=context_dict)
